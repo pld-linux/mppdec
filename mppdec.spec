@@ -1,10 +1,10 @@
-# $Revision: 1.4 $ 
+# $Revision: 1.5 $ 
 #
 # Conditional build:
 %bcond_without esd	# without EsounD support
 #
-Summary:	Tool for decompressing mpc files
-Summary(pl):	Program do dekompresji plików mpc
+Summary:	Tool for decompressing MPC files
+Summary(pl):	Program do dekompresji plików MPC
 Name:		mppdec
 Version:	1.1
 Release:	0.1
