@@ -1,4 +1,6 @@
-# $Revision: 1.2 $ 
+# $Revision: 1.3 $ 
+%bcond_without esd # no esound daemon
+
 Summary:	Tool for decompressing mpc files
 Summary(pl):	Program do dekompresji plików mpc
 Name:		mppdec
@@ -11,6 +13,9 @@ Source0:	http://www.personal.uni-jena.de/~pfk/MPP/src/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-makefile.patch
 URL:		http://www.uni-jena.de/~pfk/mpp/
 BuildRequires:	esound-devel
+%{?with_esd:BuildRequires:esound}
+BuildRequires:	grep
+BuildRequires:	sed >= 0:4.0
 BuildRequires:	nasm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,6 +43,11 @@ wiêc dekoder jest nadal du¿o szybszy.
 
 # don't want static binaries
 grep -v -e '-static' Makefile > Makefile.nostatic
+%if ! %{with esd}
+%{__sed} -i -e 's,-lesd,,g' Makefile.nostatic
+grep -v "USE_ESD_AUDIO" mpp.h >> mpp.h.1
+mv mpp.h{.1,}
+%endif 
 
 %build
 %{__make} mppdec -f Makefile.nostatic \
