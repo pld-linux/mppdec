@@ -1,6 +1,8 @@
-# $Revision: 1.3 $ 
-%bcond_without esd # no esound daemon
-
+# $Revision: 1.4 $ 
+#
+# Conditional build:
+%bcond_without esd	# without EsounD support
+#
 Summary:	Tool for decompressing mpc files
 Summary(pl):	Program do dekompresji plików mpc
 Name:		mppdec
@@ -12,10 +14,8 @@ Source0:	http://www.personal.uni-jena.de/~pfk/MPP/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	53172eef6b409725b885ca39f98a56bc
 Patch0:		%{name}-makefile.patch
 URL:		http://www.uni-jena.de/~pfk/mpp/
-BuildRequires:	esound-devel
-%{?with_esd:BuildRequires:esound}
-BuildRequires:	grep
-BuildRequires:	sed >= 0:4.0
+%{?with_esd:BuildRequires:esound-devel}
+BuildRequires:	sed >= 4.0
 BuildRequires:	nasm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
