@@ -1,11 +1,32 @@
---- /home/users/hunter/backups/Makefile~	2002-07-31 00:19:57.000000000 +0200
-+++ Makefile	2004-01-23 22:01:56.000000000 +0100
-@@ -80,7 +80,7 @@
- # Name of libraries you need for linking
+--- mppdec-1.1/Makefile.orig	Tue Jan 27 14:37:22 2004
++++ mppdec-1.1/Makefile	Tue Jan 27 14:40:34 2004
+@@ -354,7 +354,7 @@
+ # Compile mppdec source code files
  
- LDADD    = -lm
--LDADD   += -lesd
-+#LDADD   += -lesd
- #LDADD  += -lossaudio
- #LDADD  += -lrt
- #LDADD  += -lsocket -lnsl
+ config.h: mpp.h config.c
+-	$(CC) -DMPP_DECODER $(CFLAGS) -o config config.c   $(LDADD) &> $(LOGFILE)
++	$(CC) -DMPP_DECODER $(CFLAGS) -o config config.c   $(LDADD) > $(LOGFILE) 2>&1
+ 	@$(RM_F) config.h
+ 	@./config "$(CC) $(CFLAGS) -o <<EXE>> <<SRC>> $(LDADD)" "./<<EXE>>"
+ 	@$(RM_F) config
+@@ -597,7 +597,7 @@
+ 
+ install:
+ 	@make
+-	@-mount -o remount,rw /usr &> $(DEVNULL)
++	@-mount -o remount,rw /usr > $(DEVNULL) 2>&1
+ 	@-$(CP_F)                      {mppdec,mppdec16,mppdec24,mppdec32,mppenc}{,-static,-diet} /usr/local/bin
+ 	@-$(CHOWN)  0.0 /usr/local/bin/{mppdec,mppdec16,mppdec24,mppdec32,mppenc}{,-static,-diet}
+ 	@-$(CHMOD) 4755 /usr/local/bin/{mppdec,mppdec16,mppdec24,mppdec32,mppenc}{,-static,-diet}
+@@ -607,9 +607,9 @@
+ installv:
+ 	@make clean
+ 	@make mppenc
+-	@-mount -o remount,rw /usr &> $(DEVNULL)
++	@-mount -o remount,rw /usr > $(DEVNULL) 2>&1
+ 	@-$(CP_F)                      mppenc /usr/local/bin/mppenc-${MPPENC_VERSION}
+-	@-mount -o remount,ro /usr &> $(DEVNULL)
++	@-mount -o remount,ro /usr > $(DEVNULL) 2>&1
+ 
+ 
+ websrc:
