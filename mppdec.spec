@@ -1,7 +1,7 @@
-# $Revision: 1.5 $ 
+# $Revision: 1.6 $ 
 #
 # Conditional build:
-%bcond_without esd	# without EsounD support
+%bcond_without	esd	# without EsounD support
 #
 Summary:	Tool for decompressing MPC files
 Summary(pl):	Program do dekompresji plików MPC
