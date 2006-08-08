@@ -1,4 +1,4 @@
-# $Revision: 1.6 $ 
+# $Revision: 1.7 $ 
 #
 # Conditional build:
 %bcond_without	esd	# without EsounD support
@@ -39,7 +39,7 @@ wiêc dekoder jest nadal du¿o szybszy.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 # don't want static binaries
 grep -v -e '-static' Makefile > Makefile.nostatic
