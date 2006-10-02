@@ -1,4 +1,4 @@
-# $Revision: 1.7 $ 
+# $Revision: 1.8 $ 
 #
 # Conditional build:
 %bcond_without	esd	# without EsounD support
@@ -7,7 +7,7 @@ Summary:	Tool for decompressing MPC files
 Summary(pl):	Program do dekompresji plików MPC
 Name:		mppdec
 Version:	1.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Multimedia
 Source0:	http://www.personal.uni-jena.de/~pfk/MPP/src/%{name}-%{version}.tar.bz2
@@ -48,6 +48,9 @@ grep -v -e '-static' Makefile > Makefile.nostatic
 grep -v "USE_ESD_AUDIO" mpp.h >> mpp.h.1
 mv mpp.h{.1,}
 %endif 
+
+# gcc4 fix (unrecognized option error)
+sed -i -e 's/-fmove-all-movables//' Makefile.nostatic
 
 %build
 %{__make} mppdec -f Makefile.nostatic \
