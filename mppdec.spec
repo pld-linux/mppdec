@@ -1,10 +1,10 @@
-# $Revision: 1.8 $ 
+# $Revision: 1.9 $ 
 #
 # Conditional build:
 %bcond_without	esd	# without EsounD support
 #
 Summary:	Tool for decompressing MPC files
-Summary(pl):	Program do dekompresji plików MPC
+Summary(pl.UTF-8):   Program do dekompresji plikÃ³w MPC
 Name:		mppdec
 Version:	1.1
 Release:	1
@@ -28,14 +28,14 @@ AMD Athlon, AMD Duron, Intel Pentium III, Intel Pentium 4 there's
 still some hand written assembler code so this decoder is still much
 faster.
 
-%description -l pl
-Jest to zoptymalizowana pod k±tem szybko¶ci i przeno¶no¶ci wersja
-dekodera MPEG-Plus autorstwa Andree Buschmanna. Poprawa szybko¶ci
-wynosi 1:4...1:5 w stosunku do oryginalnych ¼róde³. Niektóre
-optymalizacje pochodz± z oryginalnego dekodera, ale szczególnie dla
-procesorów AMD K6-2, AMD K6-III, AMD Athlon, AMD Duron, Intel Pentium
-II, Intel Pentium 4 jest trochê rêcznie napisanego w asemblerze kodu,
-wiêc dekoder jest nadal du¿o szybszy.
+%description -l pl.UTF-8
+Jest to zoptymalizowana pod kÄ…tem szybkoÅ›ci i przenoÅ›noÅ›ci wersja
+dekodera MPEG-Plus autorstwa Andree Buschmanna. Poprawa szybkoÅ›ci
+wynosi 1:4...1:5 w stosunku do oryginalnych ÅºrÃ³deÅ‚. NiektÃ³re
+optymalizacje pochodzÄ… z oryginalnego dekodera, ale szczegÃ³lnie dla
+procesorÃ³w AMD K6-2, AMD K6-III, AMD Athlon, AMD Duron, Intel Pentium
+II, Intel Pentium 4 jest trochÄ™ rÄ™cznie napisanego w asemblerze kodu,
+wiÄ™c dekoder jest nadal duÅ¼o szybszy.
 
 %prep
 %setup -q
