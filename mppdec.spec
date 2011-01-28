@@ -1,4 +1,3 @@
-# $Revision: 1.10 $ 
 #
 # Conditional build:
 %bcond_without	esd	# without EsounD support
@@ -15,8 +14,8 @@ Source0:	http://www.personal.uni-jena.de/~pfk/MPP/src/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-makefile.patch
 URL:		http://www.uni-jena.de/~pfk/mpp/
 %{?with_esd:BuildRequires:esound-devel}
-BuildRequires:	sed >= 4.0
 BuildRequires:	nasm
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,7 +46,7 @@ grep -v -e '-static' Makefile > Makefile.nostatic
 %{__sed} -i -e 's,-lesd,,g' Makefile.nostatic
 grep -v "USE_ESD_AUDIO" mpp.h >> mpp.h.1
 mv mpp.h{.1,}
-%endif 
+%endif
 
 # gcc4 fix (unrecognized option error)
 sed -i -e 's/-fmove-all-movables//' Makefile.nostatic
